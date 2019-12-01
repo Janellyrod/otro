@@ -79,7 +79,9 @@
                     <tbody>
                         @foreach($alumnos as $row)
                         <tr><td>{{$row->nombreA}}</td><td>{{$row->apeP}}</td>
-                            <td>{{$row->grado}}</td><td>{{$row->carrera}}</td></tr>
+                            <td>{{$row->grado}}</td><td>{{$row->carrera}}</td><td>{{$row->nombre}}</td><td>
+                                <a href="{{url("alumnos/".$row->id."/edit")}}" class="btn btn-success"><i class="far fa-edit" aria-hidden="true"></i></a></td><td><form method="POST" action="{{route("alumnos.destroy",$row->id)}}"> @method('DELETE') {{csrf_field()}} <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></form></td></tr>
+                        
                         @endforeach
                     </tbody>
                     

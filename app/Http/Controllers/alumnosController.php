@@ -64,7 +64,7 @@ class alumnosController extends Controller
     public function edit($id)
     {
         if(alumnosModel::where("id",$id)->exists()){
-        $alumnos = aluModel::select("*")->where("id",$id)->get();
+        $alumnos = alumnosModel::select("*")->where("id",$id)->get();
         return view("editaalumnos", compact("alumnos"));
         }
         else{return redirect("alumnos")->with("error", "Alumno no encontrado");
@@ -82,7 +82,7 @@ class alumnosController extends Controller
     public function update(Request $request, $id)
     {
          if(alumnosModel::where("id",$id)->exists()){
-        $alumnos = bancosModel::find($id);
+        $alumnos = alumnosModel::find($id);
         $alumnos->nombreA=$request->nombre;//primero es el de la bd y el segundo es el del formulario
         $alumnos->apeP=$request->apellido;//primero es el de la bd y el segundo es el del formulario
         $alumnos->grado=$request->grado;//primero es el de la bd y el segundo es el del formulario
@@ -105,7 +105,7 @@ class alumnosController extends Controller
     public function destroy($id)
     {
         if(alumnosModel::where("id",$id)->exists()){
-        $alumnos = aluModel::find($id);
+        $alumnos = alumnosModel::find($id);
         $alumnos->delete();
         return redirect("alumnos")->with("success", "Alumno eliminado");
     }

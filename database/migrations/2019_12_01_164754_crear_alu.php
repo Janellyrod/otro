@@ -16,6 +16,7 @@ class CrearAlu extends Migration
         Schema::create('alumnos', function (Blueprint $table) {
             $table->bigIncrements('id')->unique();
             $table->string('nombreA',30);
+            $table->string('apeP',30);
             $table->string('grado',15);
             $table->string('carrera',25);
             $table->timestamps();
